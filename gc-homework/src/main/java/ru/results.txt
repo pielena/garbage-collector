@@ -1,0 +1,29 @@
+Heap size               basic + G1                  basic + SerialGC                refactor + G1       refactor + SerialGC
+
+-Xms256m -Xmx256m       OutOfMemoryError:           OutOfMemoryError:
+                            Java heap space             Java heap space
+
+-Xms512m -Xmx512m       spend msec:8829, sec:8      spend msec:14079, sec:14
+                        spend msec:8891, sec:8      spend msec:14243, sec:14
+                        spend msec:9596, sec:9      spend msec:14063, sec:14
+                        avg = 9105, sec:9           avg = 14128, sec:14
+
+-Xms1024m -Xmx1024m     spend msec:8031, sec:8      spend msec:10679, sec:10
+                        spend msec:7941, sec:7      spend msec:10589, sec:10
+                        spend msec:7954, sec:7      spend msec:10751, sec:10
+                        avg = 7975, sec:7           avg = 10673, sec:10
+
+-Xms2048m -Xmx2048m     spend msec:7330, sec:7      spend msec:8603, sec:8
+                        spend msec:7678, sec:7      spend msec:8138, sec:8
+                        spend msec:7693, sec:7      spend msec:8235, sec:8
+                        avg = 7567, sec:7           avg = 8325, sec:8
+
+-Xms4096m -Xmx4096m     spend msec:8135, sec:8      spend msec:5877, sec:5
+                        spend msec:7723, sec:7      spend msec:5925, sec:5
+                        spend msec:7644, sec:7      spend msec:5905, sec:5
+                        avg = 7834, sec:7           avg = 5902, sec:5
+
+-Xms6144m -Xmx6144m     spend msec:8117, sec:8      spend msec:4766, sec:4
+                        spend msec:8225, sec:8      spend msec:4890, sec:4
+                        spend msec:7959, sec:7      spend msec:4829, sec:4
+                        avg = 8100, sec:8           avg = 4828, sec:4
