@@ -30,6 +30,17 @@ VM options:
 */
 
 /*
+-Xms512m - start heap size 512 MB
+        -Xmx512m - max heap size 512 MB
+        Best practice: start heap size = max heap size
+        -verbose:gc - switch to debug mode for GC
+        -Xlog:gc=debug:file=./logs/gc-%p-%t.log:tags,uptime,time,level:filecount=5,filesize=10m
+        - logging parameters
+        -XX:+HeapDumpOnOutOfMemoryError - save heap dump while OOMError
+        -XX:+UseG1GC - choose certain GC
+ */
+
+/*
 Основная настройка:
     -XX:MaxGCPauseMillis=100000
     -XX:MaxGCPauseMillis=10
