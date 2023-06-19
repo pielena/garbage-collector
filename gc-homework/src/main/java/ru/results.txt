@@ -32,4 +32,4 @@ Heap size               basic + G1                  basic + SerialGC            
 
 Best result:            2048m (avg = 7975, sec:7)   6144m (avg = 4828, sec:4)       512m (avg = 1439, sec:1)    2048m (avg = 1301, sec:1)
 
-*After refactoring (Integer --> int) the app can run with heap size 256m because we've moved numbers from heap to stack
+*After refactoring (Integer --> int) the app can run with heap size 256m because we've optimized the heap memory work.
