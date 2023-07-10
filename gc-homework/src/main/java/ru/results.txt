@@ -1,0 +1,35 @@
+Heap size               basic + G1                  basic + SerialGC                refactoring + G1            refactoring + SerialGC
+
+-Xms256m -Xmx256m       OutOfMemoryError:           OutOfMemoryError:               spend msec:1948, sec:1      spend msec:3222, sec:3
+                            Java heap space             Java heap space             spend msec:1978, sec:1      spend msec:3215, sec:3
+                                                                                    spend msec:1987, sec:1      spend msec:3217, sec:3
+                                                                                    avg = 1971, sec:1           avg = 3218, sec:3
+
+-Xms512m -Xmx512m       spend msec:8829, sec:8      spend msec:14079, sec:14        spend msec:1363, sec:1      spend msec:2072, sec:2
+                        spend msec:8891, sec:8      spend msec:14243, sec:14        spend msec:1434, sec:1      spend msec:2097, sec:2
+                        spend msec:9596, sec:9      spend msec:14063, sec:14        spend msec:1522, sec:1      spend msec:2075, sec:2
+                        avg = 9105, sec:9           avg = 14128, sec:14             avg = 1439, sec:1           avg = 2081, sec:2
+
+-Xms1024m -Xmx1024m     spend msec:8031, sec:8      spend msec:10679, sec:10        spend msec:1481, sec:1      spend msec:1540, sec:1
+                        spend msec:7941, sec:7      spend msec:10589, sec:10        spend msec:1515, sec:1      spend msec:1549, sec:1
+                        spend msec:7954, sec:7      spend msec:10751, sec:10        spend msec:1474, sec:1      spend msec:1543, sec:1
+                        avg = 7975, sec:7           avg = 10673, sec:10             avg = 1490, sec:1           avg = 1544, sec:1
+
+-Xms2048m -Xmx2048m     spend msec:7330, sec:7      spend msec:8603, sec:8          spend msec:1477, sec:1      spend msec:1305, sec:1
+                        spend msec:7678, sec:7      spend msec:8138, sec:8          spend msec:1447, sec:1      spend msec:1298, sec:1
+                        spend msec:7693, sec:7      spend msec:8235, sec:8          spend msec:1488, sec:1      spend msec:1302, sec:1
+                        avg = 7567, sec:7           avg = 8325, sec:8               avg = 1470, sec:1           avg = 1301, sec:1
+
+-Xms4096m -Xmx4096m     spend msec:8135, sec:8      spend msec:5877, sec:5          spend msec:1476, sec:1      spend msec:1742, sec:1
+                        spend msec:7723, sec:7      spend msec:5925, sec:5          spend msec:1505, sec:1      spend msec:1295, sec:1
+                        spend msec:7644, sec:7      spend msec:5905, sec:5          spend msec:1514, sec:1      spend msec:1314, sec:1
+                        avg = 7834, sec:7           avg = 5902, sec:5               avg = 1498, sec:1           avg = 1450, sec:1
+
+-Xms6144m -Xmx6144m     spend msec:8117, sec:8      spend msec:4766, sec:4          spend msec:1532, sec:1      spend msec:1637, sec:1
+                        spend msec:8225, sec:8      spend msec:4890, sec:4          spend msec:1479, sec:1      spend msec:1540, sec:1
+                        spend msec:7959, sec:7      spend msec:4829, sec:4          spend msec:1489, sec:1      spend msec:1542, sec:1
+                        avg = 8100, sec:8           avg = 4828, sec:4               avg = 1500, sec:1           avg = 1573, sec:1
+
+Best result:            2048m (avg = 7975, sec:7)   6144m (avg = 4828, sec:4)       512m (avg = 1439, sec:1)    2048m (avg = 1301, sec:1)
+
+*After refactoring (Integer --> int) the app can run with heap size 256m because we've optimized the heap memory work.
